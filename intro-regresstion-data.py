@@ -21,3 +21,8 @@ forecast_out = int(math.ceil(0.1*len(df)))
 
 df['label'] = df[forecast_col].shift(-forecast_out)
 df.dropna(inplace=True)
+
+x = np.array(df.drop(['label'], 1))
+y = np.array(df['label'])
+x = preprocessing.scale(X)
+
